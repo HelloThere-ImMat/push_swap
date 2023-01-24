@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 11:40:00 by mdorr             #+#    #+#             */
-/*   Updated: 2023/01/23 12:01:50 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/01/24 14:00:01 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,16 @@ int get_subset(t_subset *sub, t_pile a, t_pile b)
 
 	sorted = copy_tab(b);
 	a_tmp = copy_tab(a);
+	//printf("a_tmp is ;\n");
+	//print_tab(a_tmp);
 	if (sorted.tab == NULL || a_tmp.tab == NULL)
 	{
 		write(2, "Error\n", 6);
 		return (1);
 	}
 	ugly_sorting(&a_tmp, &sorted);
+	printf("sorted\n");
+	print_tab(a_tmp);
 	if (a.nbr_count <= 100)
 		find_subset(sub, sorted);
 	else
@@ -65,4 +69,3 @@ void find_big_subset(t_subset *sub, t_pile sorted)
 	sub->s2 = sorted.tab[chunk_amount * 8];
 	sub->s1 = sorted.tab[chunk_amount * 9];
 }
-

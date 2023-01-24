@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 	{
 		if (get_subset(&sub,a, b) == 1)
 			return (1);
-		big_sorting(sub, &a, &b);
+		//big_sorting(sub, &a, &b);
 	}
 	else
 	{
@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 	// print_tab(a);
 	// printf("b after sorting :\n");
 	// print_tab(b);
-	free(a.tab);
-	free(b.tab);
+	//free(a.tab);
+	//free(b.tab);
 	return (0);
 }

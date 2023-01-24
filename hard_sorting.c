@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:41:10 by mdorr             #+#    #+#             */
-/*   Updated: 2023/01/23 12:14:16 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/01/24 13:26:38 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void add_to_b(t_pile *a, t_pile *b)
 		while (is_min(b->tab[i], *b) == 0)
 			i++;
 		get_min_to_bottom(b->tab[i], b);
-		push_b(a, b, 1);
+		push(a, b, 1);
 		return ;
 	}
 	else if (is_min(a->tab[top_a], *b) == 1)
@@ -84,7 +84,7 @@ void add_to_b(t_pile *a, t_pile *b)
 		while (is_min(b->tab[i], *b) == 0)
 			i++;
 		get_min_to_bottom(b->tab[i], b);
-		push_b(a, b, 1);
+		push(a, b, 1);
 		rotate(b, 1);
 		return ;
 	}
@@ -97,7 +97,7 @@ void add_to_b(t_pile *a, t_pile *b)
 		else
 			reverse_rotate(b, 1);
 	}
-	push_b(a, b, 1);
+	push(a, b, 1);
 }
 
 void get_min_to_top(int min, t_pile *pile)
@@ -207,7 +207,7 @@ void big_sorting(t_subset sub, t_pile *a, t_pile *b)
 		add_to_b(a, b);
 	}
 	while (b->nbr_count > 0)
-		push_a(a, b, 1);
+		push(b, a, 1);
 	get_min_to_top(sub.min, a);
 }
 
@@ -265,6 +265,6 @@ void	mega_sorting(t_subset sub, t_pile *a, t_pile *b)
 		add_to_b(a, b);
 	}
 	while (b->nbr_count > 0)
-		push_a(a, b, 1);
+		push(b, a, 1);
 	get_min_to_top(sub.min, a);
 }

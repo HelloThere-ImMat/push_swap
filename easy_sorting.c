@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 10:33:55 by mdorr             #+#    #+#             */
-/*   Updated: 2023/01/23 11:00:49 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/01/24 13:59:40 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void add_to_a(t_pile *a, t_pile *b, int *counter)
 			(*counter)++;
 		}
 	}
-	push_a(a, b, 1);
+	push(b, a, 1);
 }
 
 void medium_sorting(int arg_nbr, t_pile *a, t_pile *b)
@@ -78,9 +78,9 @@ void medium_sorting(int arg_nbr, t_pile *a, t_pile *b)
 	int	counter;
 
 	counter = 0;
-	push_b(a, b, 1);
+	push(a, b, 1);
 	if (arg_nbr == 5)
-		push_b(a, b, 1);
+		push(a, b, 1);
 	sort_trio(a);
 	add_to_a(a, b, &counter);
 	while (counter-- > 0)
@@ -97,9 +97,11 @@ void ugly_sorting(t_pile *a, t_pile *sorted)
 {
 	while (a->nbr_count > 0)
 	{
-		while (is_max(a->tab[(a->nbr_count) - 1], *a) == 0)
+		while (is_min(a->tab[(a->nbr_count) - 1], *a) == 0)
 			rotate(a, 0);
-		push_b(a, sorted, 0);
+		push(a, sorted, 0);
 	}
+	while (sorted->nbr_count > 0)
+		push(sorted, a, 0);
 	return ;
 }

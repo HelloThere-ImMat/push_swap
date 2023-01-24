@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 16:14:43 by mdorr             #+#    #+#             */
-/*   Updated: 2023/01/23 11:57:39 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/01/24 13:19:27 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	swap_b(t_pile *b, int print);
 void	swap_a(t_pile *a, int print);
 void	push_a(t_pile *a, t_pile *b, int print);
 void	push_b(t_pile *a, t_pile *b, int print);
+void	push(t_pile *src, t_pile *dest, int print);
 
 
 //OPERATION2

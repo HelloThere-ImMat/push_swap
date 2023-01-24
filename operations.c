@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 11:23:52 by mdorr             #+#    #+#             */
-/*   Updated: 2023/01/19 11:30:10 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/01/24 13:24:02 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,36 +42,20 @@ void swap_b(t_pile *b, int print)
 		write(1, "sb\n", 3);
 }
 
-void push_a(t_pile *a, t_pile *b, int print)
+void push(t_pile *src, t_pile *dest, int print)
 {
-	int i_maxA;
-	int i_maxB;
+	int i_max_src;
+	int i_max_dest;
 
-	i_maxA = a->nbr_count - 1;
-	i_maxB = b->nbr_count - 1;
-	if (b->nbr_count == 0)
+	i_max_src = src->nbr_count - 1;
+	i_max_dest = dest->nbr_count - 1;
+	if (src->nbr_count == 0)
 		return ;
-	a->tab[i_maxA + 1] = b->tab[i_maxB];
-	//b->tab[i_maxB - 1] = NULL;
-	b->nbr_count -= 1;
-	a->nbr_count += 1;
-	if (print == 1)
+	dest->tab[i_max_dest + 1] = src->tab[i_max_src];
+	src->nbr_count -= 1;
+	dest->nbr_count += 1;
+	if (print == 1 && dest->id == 1)
 		write(1, "pa\n", 3);
-}
-
-void push_b(t_pile *a, t_pile *b, int print)
-{
-	int i_maxA;
-	int i_maxB;
-
-	i_maxA = a->nbr_count - 1;
-	i_maxB = b->nbr_count - 1;
-	if (a->nbr_count == 0)
-		return ;
-	b->tab[i_maxB + 1] = a->tab[i_maxA];
-	//b->tab[i_maxB - 1] = NULL;
-	a->nbr_count -= 1;
-	b->nbr_count += 1;
-	if (print == 1)
+	if (print == 1 && dest->id == 2)
 		write(1, "pb\n", 3);
 }
