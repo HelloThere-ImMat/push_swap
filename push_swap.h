@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 16:14:43 by mdorr             #+#    #+#             */
-/*   Updated: 2023/01/24 13:19:27 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/01/24 18:09:41 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	is_max (int	nb, t_pile pile);
 
 //SUBSET
 
-int get_subset(t_subset *sub, t_pile a, t_pile b);
+int get_subset(t_subset *sub, t_pile *a, t_pile *b);
 void find_subset(t_subset *sub, t_pile sorted);
 void find_big_subset(t_subset *sub, t_pile sorted);
 
@@ -90,7 +90,7 @@ void	sort_trio(t_pile *a);
 void	small_sorting(int argc, t_pile *a);
 void	add_to_a(t_pile *a, t_pile *b, int *counter);
 void	medium_sorting(int argc, t_pile *a, t_pile *b);
-void	ugly_sorting(t_pile *a, t_pile *sorted);
+void	ugly_sorting(t_pile *a_tmp, t_pile *sorted);
 
 //HARD SORTING
 

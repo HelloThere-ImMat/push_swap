@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 11:23:52 by mdorr             #+#    #+#             */
-/*   Updated: 2023/01/24 13:24:02 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/01/24 17:23:50 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,11 @@ void swap_b(t_pile *b, int print)
 
 void push(t_pile *src, t_pile *dest, int print)
 {
-	int i_max_src;
-	int i_max_dest;
-
-	i_max_src = src->nbr_count - 1;
-	i_max_dest = dest->nbr_count - 1;
 	if (src->nbr_count == 0)
 		return ;
-	dest->tab[i_max_dest + 1] = src->tab[i_max_src];
-	src->nbr_count -= 1;
 	dest->nbr_count += 1;
+	dest->tab[dest->nbr_count - 1] = src->tab[src->nbr_count - 1];
+	src->nbr_count -= 1;
 	if (print == 1 && dest->id == 1)
 		write(1, "pa\n", 3);
 	if (print == 1 && dest->id == 2)

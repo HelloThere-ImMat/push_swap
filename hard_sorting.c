@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:41:10 by mdorr             #+#    #+#             */
-/*   Updated: 2023/01/24 13:26:38 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/01/24 18:18:59 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,7 +181,7 @@ void print_sub(t_subset sub)
 
 void big_sorting(t_subset sub, t_pile *a, t_pile *b)
 {
-	//print_sub(sub);
+	print_sub(sub);
 	//printf("FIRST QUARTILE \n");
 	while (quartile_is_in_pile(sub.min, sub.q1, *a) == 1)
 	{
