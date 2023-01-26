@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 11:40:00 by mdorr             #+#    #+#             */
-/*   Updated: 2023/01/24 18:18:07 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/01/26 16:23:38 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,20 @@ int get_subset(t_subset *sub, t_pile *a, t_pile *b)
 
 	sorted = copy_tab(*b);
 	a_tmp = copy_tab(*a);
+	//print_tab(a_tmp);
 	if (sorted.tab == NULL || a_tmp.tab == NULL)
 	{
 		write(2, "Error\n", 6);
 		return (1);
 	}
-	ugly_sorting(a, &sorted);
-	printf("sorted\n");
-	print_tab(sorted);
-	*a = copy_tab(a_tmp);
+	//printf("a_tmp before sorted\n");
+	//print_tab(a_tmp);
+	ugly_sorting(&a_tmp, &sorted);
+	//printf("sorted\n");
+	//print_tab(sorted);
+	//printf("a_tmp after sorted\n");
+	//print_tab(a_tmp);
+	//*a = copy_tab(a_tmp);
 	if (a->nbr_count <= 100)
 		find_subset(sub, sorted);
 	else

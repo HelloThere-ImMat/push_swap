@@ -91,4 +91,3 @@ void    print_tab(t_pile pile)
 		i--;
 	}
 }
-

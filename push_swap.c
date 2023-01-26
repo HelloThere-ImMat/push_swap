@@ -17,8 +17,12 @@ int	main(int argc, char **argv)
 		medium_sorting(argc - 1, &a, &b);
 	else if (argc <= 101)
 	{
+		//print_tab(a);
+		//printf("===\n");
 		if (get_subset(&sub,&a, &b) == 1)
 			return (1);
+		//printf("===\n");
+		//print_tab(a);
 		big_sorting(sub, &a, &b);
 	}
 	else

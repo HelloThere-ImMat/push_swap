@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:41:10 by mdorr             #+#    #+#             */
-/*   Updated: 2023/01/24 18:18:59 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/01/26 16:24:04 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,7 +181,7 @@ void print_sub(t_subset sub)
 
 void big_sorting(t_subset sub, t_pile *a, t_pile *b)
 {
-	print_sub(sub);
+	//print_sub(sub);
 	//printf("FIRST QUARTILE \n");
 	while (quartile_is_in_pile(sub.min, sub.q1, *a) == 1)
 	{
@@ -194,18 +194,30 @@ void big_sorting(t_subset sub, t_pile *a, t_pile *b)
 		get_quartile_to_top(sub.q1, sub.median, a);
 		add_to_b(a, b);
 	}
+	//printf("tab a\n");
+	//print_tab(*a);
+	//printf("tab \n");
+	//print_tab(*b);
 	//printf("THIRD QUARTILE \n");
 	while (quartile_is_in_pile(sub.median, sub.q3, *a) == 1)
 	{
 		get_quartile_to_top(sub.median, sub.q3, a);
 		add_to_b(a, b);
 	}
+	//printf("tab a\n");
+	//print_tab(*a);
+	//printf("tab \n");
+	//print_tab(*b);
 	//printf("FOURTH QUARTILE \n");
 	while (quartile_is_in_pile(sub.q3, sub.max, *a) == 1 || a->nbr_count != 0)
 	{
 		get_quartile_to_top(sub.q3, sub.max + 1, a);
 		add_to_b(a, b);
 	}
+	//printf("tab a\n");
+	//print_tab(*a);
+	//printf("tab \n");
+	//print_tab(*b);
 	while (b->nbr_count > 0)
 		push(b, a, 1);
 	get_min_to_top(sub.min, a);
