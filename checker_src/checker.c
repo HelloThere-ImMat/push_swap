@@ -6,12 +6,11 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 22:19:58 by mdorr             #+#    #+#             */
-/*   Updated: 2023/01/23 17:44:28 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/01/27 18:02:19 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
-#include "../push_swap.h"
 
 //you need to protect those mallocs
 
@@ -107,9 +106,9 @@ void	apply_instruct(t_list *instructions, t_pile *a, t_pile *b)
 		if (ft_strncmp("ss\n", instructions->content, 3) == 0)
 			super_swap(a, b, 0);
 		if (ft_strncmp("pa\n", instructions->content, 3) == 0)
-			push_a(a, b, 0);
+			push(a, b, 0);
 		if (ft_strncmp("pb\n", instructions->content, 3) == 0)
-			push_b(a, b, 0);
+			push(a, b, 0);
 		if (ft_strncmp("ra\n", instructions->content, 3) == 0)
 			rotate(a, 0);
 		if (ft_strncmp("rb\n", instructions->content, 3) == 0)
