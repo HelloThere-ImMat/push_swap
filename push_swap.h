@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 16:14:43 by mdorr             #+#    #+#             */
-/*   Updated: 2023/01/28 19:01:21 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/01/28 20:03:03 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,10 @@ int		ft_strcmp(char *s1, char *s2);
 //PILE UTILS
 
 t_pile	*copy_tab(const t_pile *original);
+t_pile	*create_tab(int argc, char **argv, int a);
 void	add_to_tab(int argc, char **argv, t_pile *a);
-void	free_pile(t_pile *pile);
 int		quartile_is_in_pile(int quartile_under, int quartile_over, t_pile a);
-int		create_tab(int argc, char **argv, t_pile *a, t_pile *b);
-//void	print_tab(t_pile pile);
+
 
 //SORTING UTILS
 
@@ -86,7 +85,6 @@ int		is_max(int nb, t_pile pile);
 
 //SORTING UTILS 2
 
-//int		r_or_rr(t_pile *a, t_pile *b);
 int		r_or_rr(t_pile *a, t_pile *b, int top_a, int top_b);
 void	add_to_b(t_pile *a, t_pile *b);
 void	add_extreme_to_b(t_pile *a, t_pile *b, int is_min);
@@ -114,5 +112,7 @@ void	mega_sorting(t_subset sub, t_pile *a, t_pile *b);
 //PUSH SWAP
 
 int		main(int argc, char **argv);
+int		sort(int argc, t_pile *a, t_pile *b, t_subset *sub);
+void	free_pile(t_pile *pile);
 
 #endif
