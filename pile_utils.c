@@ -1,23 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pile_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/28 14:16:50 by mdorr             #+#    #+#             */
+/*   Updated: 2023/01/28 14:45:19 by mdorr            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-t_pile copy_tab (t_pile pile)
+void	free_pile(t_pile *pile)
 {
-	t_pile new;
-	int	i;
-
-	new.nbr_count = pile.nbr_count;
-	new.tab = malloc(sizeof(int) * pile.nbr_count);
-	new.id = pile.id;
-	i = 0;
-	while (pile.tab[i])
-	{
-		new.tab[i] = pile.tab[i];
-		i++;
-	}
-	return (new);
+	free(pile->tab);
+	free(pile);
 }
 
-void add_to_tab(int	argc, char **argv, t_pile *a)
+t_pile	*copy_tab(const t_pile *original)
+{
+	t_pile	*copy;
+	int		i;
+
+	i = 0;
+	copy = (t_pile *)malloc(sizeof(t_pile));
+	copy->nbr_count = original->nbr_count;
+	copy->id = original->id;
+	copy->tab = (int *) malloc(sizeof(int) * original->nbr_count);
+	while (i < original->nbr_count)
+	{
+		copy->tab[i] = original->tab[i];
+		i++;
+	}
+	return (copy);
+}
+
+void	add_to_tab(int argc, char **argv, t_pile *a)
 {
 	int	i;
 	int	i2;
@@ -34,10 +53,10 @@ void add_to_tab(int	argc, char **argv, t_pile *a)
 	}
 }
 
-int	create_tab(int argc, t_pile *a, t_pile *b)
+int	create_tab(int argc, char **argv, t_pile *a, t_pile *b)
 {
-	a->tab = malloc(sizeof(int)*(argc - 1));
-	b->tab = malloc(sizeof(int)*(argc - 1));
+	a->tab = malloc(sizeof(int) * (argc - 1));
+	b->tab = malloc(sizeof(int) * (argc - 1));
 	a->nbr_count = argc - 1;
 	b->nbr_count = 0;
 	a->id = 1;
@@ -47,47 +66,35 @@ int	create_tab(int argc, t_pile *a, t_pile *b)
 		write(2, "allocation error\n", 17);
 		return (0);
 	}
+	add_to_tab(argc, argv, a);
 	return (1);
 }
 
-int is_min (int	nb, t_pile pile)
+int	quartile_is_in_pile(int quartile_under, int quartile_over, t_pile a)
 {
 	int	i;
 
 	i = 0;
-	while  (i < pile.nbr_count)
+	while (i < a.nbr_count)
 	{
-		if (pile.tab[i] < nb)
-			return (0);
-		i++;
+		if (a.tab[i] >= quartile_under && a.tab[i] < quartile_over)
+			return (1);
+		else
+			i++;
 	}
-	return (1);
+	return (0);
 }
 
-int is_max (int	nb, t_pile pile)
-{
-	int	i;
+//void	print_tab(t_pile pile)
+//{
+//	int	i;
 
-	i = 0;
-	while  (i < pile.nbr_count)
-	{
-		if (pile.tab[i] > nb)
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-void    print_tab(t_pile pile)
-{
-	int     i;
-
-	if (pile.nbr_count == 0)
-		printf("Empty\n");
-	i = pile.nbr_count - 1;
-	while (i >= 0)
-	{
-		printf("the %d element is %d\n", i, pile.tab[i]);
-		i--;
-	}
-}
+//	if (pile.nbr_count == 0)
+//		printf("Empty\n");
+//	i = pile.nbr_count - 1;
+//	while (i >= 0)
+//	{
+//		printf("the %d element is %d\n", i, pile.tab[i]);
+//		i--;
+//	}
+//}

@@ -6,40 +6,40 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 16:14:43 by mdorr             #+#    #+#             */
-/*   Updated: 2023/01/24 18:09:41 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/01/28 14:15:50 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_pile
 {
 	int	*tab;
-	int nbr_count;
-	int id;
+	int	nbr_count;
+	int	id;
 }	t_pile;
 
 typedef struct s_subset
 {
-	int min;
+	int	min;
 	int	q1;
 	int	median;
-	int q3;
-	int max;
-	int s1;
-	int s2;
-	int s3;
-	int s4;
-	int s5;
-	int s6;
-	int s7;
-	int s8;
-	int s9;
+	int	q3;
+	int	max;
+	int	s1;
+	int	s2;
+	int	s3;
+	int	s4;
+	int	s5;
+	int	s6;
+	int	s7;
+	int	s8;
+	int	s9;
 }	t_subset;
 
 //OPERATIONS
@@ -49,7 +49,6 @@ void	swap_a(t_pile *a, int print);
 void	push_a(t_pile *a, t_pile *b, int print);
 void	push_b(t_pile *a, t_pile *b, int print);
 void	push(t_pile *src, t_pile *dest, int print);
-
 
 //OPERATION2
 
@@ -64,25 +63,26 @@ void	super_rotate(t_pile *a, t_pile *b, int print);
 
 //UTILS
 
-int	ft_atoi(const char *nptr);
-int	check_arg(int argc, char **argv);
-int	check_for_doubles (int argc, char **argv);
-int	ft_strcmp(char *s1, char *s2);
+int		ft_atoi(const char *nptr);
+int		check_arg(int argc, char **argv);
+int		check_for_doubles(int argc, char **argv);
+int		ft_strcmp(char *s1, char *s2);
 
 //PILE UTILS
 
-t_pile copy_tab (t_pile pile);
-void	add_to_tab(int	argc, char **argv, t_pile *a);
-void   	print_tab(t_pile pile);
-int	create_tab(int argc, t_pile *a, t_pile *b);
-int	is_min (int	nb, t_pile pile);
-int	is_max (int	nb, t_pile pile);
+t_pile	*copy_tab(const t_pile *original);
+void	add_to_tab(int argc, char **argv, t_pile *a);
+void	print_tab(t_pile pile);
+void	free_pile(t_pile *pile);
+int		create_tab(int argc, char **argv, t_pile *a, t_pile *b);
+int		is_min(int nb, t_pile pile);
+int		is_max(int nb, t_pile pile);
 
 //SUBSET
 
-int get_subset(t_subset *sub, t_pile *a, t_pile *b);
-void find_subset(t_subset *sub, t_pile sorted);
-void find_big_subset(t_subset *sub, t_pile sorted);
+int		get_subset(t_subset *sub, t_pile *a, t_pile *b);
+void	find_subset(t_subset *sub, t_pile sorted);
+void	find_big_subset(t_subset *sub, t_pile sorted);
 
 //EASY SORTING
 
@@ -105,7 +105,6 @@ void	mega_sorting(t_subset sub, t_pile *a, t_pile *b);
 
 //PUSH SWAP
 
-int	main (int argc, char **argv);
-
+int		main(int argc, char **argv);
 
 #endif

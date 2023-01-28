@@ -6,36 +6,41 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 10:33:55 by mdorr             #+#    #+#             */
-/*   Updated: 2023/01/24 17:41:23 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/01/28 14:43:57 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_trio(t_pile *a)
+void	sort_trio(t_pile *a)
 {
 	if (a->tab[0] > a->tab[1] && a->tab[1] > a->tab[2] && a->tab[2] < a->tab[0])
 		return ;
-	else if (a->tab[0] > a->tab[1] && a->tab[1] < a->tab[2] && a->tab[2] < a->tab[0])
+	else if (a->tab[0] > a->tab[1] && a->tab[1] < a->tab[2]
+		&& a->tab[2] < a->tab[0])
 		swap_a(a, 1);
-	else if (a->tab[0] < a->tab[1] && a->tab[1] < a->tab[2] &&  a->tab[2] > a->tab[0])
+	else if (a->tab[0] < a->tab[1] && a->tab[1] < a->tab[2]
+		&& a->tab[2] > a->tab[0])
 	{
 		swap_a(a, 1);
 		reverse_rotate(a, 1);
 	}
-	else if (a->tab[0] > a->tab[1] && a->tab[1] < a->tab[2] && a->tab[2] > a->tab[0])
+	else if (a->tab[0] > a->tab[1] && a->tab[1] < a->tab[2]
+		&& a->tab[2] > a->tab[0])
 		rotate(a, 1);
-	else if (a->tab[0] < a->tab[1] && a->tab[1] > a->tab[2] && a->tab[2] < a->tab[0])
+	else if (a->tab[0] < a->tab[1] && a->tab[1] > a->tab[2]
+		&& a->tab[2] < a->tab[0])
 	{
 		swap_a(a, 1);
 		rotate(a, 1);
 	}
-	else if (a->tab[0] < a->tab[1] && a->tab[1] > a->tab[2] && a->tab[2] > a->tab[0])
+	else if (a->tab[0] < a->tab[1] && a->tab[1] > a->tab[2]
+		&& a->tab[2] > a->tab[0])
 		reverse_rotate(a, 1);
-	return;
+	return ;
 }
 
-void small_sorting(int arg_nbr, t_pile *a)
+void	small_sorting(int arg_nbr, t_pile *a)
 {
 	if (arg_nbr == 1)
 		return ;
@@ -52,16 +57,17 @@ void small_sorting(int arg_nbr, t_pile *a)
 	}
 }
 
-void add_to_a(t_pile *a, t_pile *b, int *counter)
+void	add_to_a(t_pile *a, t_pile *b, int *counter)
 {
-	t_pile full_pile;
-	int top_b;
+	t_pile	*full_pile;
+	int		top_b;
 
-	full_pile = copy_tab(*a);
+	full_pile = copy_tab(a);
 	top_b = (b->nbr_count) - 1;
-	if (is_max(b->tab[top_b], full_pile) == 1)
+	if (is_max(b->tab[top_b], *full_pile) == 1)
 		(*counter)++;
-	else if (is_min(b->tab[top_b], full_pile) == 0 && is_max(b->tab[top_b], full_pile) == 0)
+	else if (is_min(b->tab[top_b], *full_pile) == 0
+		&& is_max(b->tab[top_b], *full_pile) == 0)
 	{
 		(*counter)++;
 		while (b->tab[top_b] < a->tab[0])
@@ -73,7 +79,7 @@ void add_to_a(t_pile *a, t_pile *b, int *counter)
 	push(b, a, 1);
 }
 
-void medium_sorting(int arg_nbr, t_pile *a, t_pile *b)
+void	medium_sorting(int arg_nbr, t_pile *a, t_pile *b)
 {
 	int	counter;
 
@@ -93,7 +99,7 @@ void medium_sorting(int arg_nbr, t_pile *a, t_pile *b)
 	return ;
 }
 
-void ugly_sorting(t_pile *a_tmp, t_pile *sorted)
+void	ugly_sorting(t_pile *a_tmp, t_pile *sorted)
 {
 	while (a_tmp->nbr_count > 0)
 	{

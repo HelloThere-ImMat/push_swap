@@ -6,7 +6,7 @@
 #    By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 17:32:10 by mdorr             #+#    #+#              #
-#    Updated: 2023/01/27 18:09:59 by mdorr            ###   ########.fr        #
+#    Updated: 2023/01/28 16:12:24 by mdorr            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ SRCS	=	push_swap.c \
 			pile_utils.c \
 			subset.c \
 			easy_sorting.c \
-			hard_sorting.c
+			hard_sorting.c \
+			sorting_utils.c
 
 BONUS	=	checker_src/checker.c \
 			checker_src/get_next_line.c \
@@ -31,7 +32,8 @@ BONUS	=	checker_src/checker.c \
 			checker_src/operations2.c \
 			checker_src/operations3.c \
 			checker_src/pile_utils.c \
-			checker_src/utils.c
+			checker_src/utils.c \
+			checker_src/str_utils.c
 
 
 NAME	=	./push_swap

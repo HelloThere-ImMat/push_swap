@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   str_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/08 15:11:02 by mdorr             #+#    #+#             */
-/*   Updated: 2023/01/28 14:35:00 by mdorr            ###   ########.fr       */
+/*   Created: 2023/01/28 16:11:00 by mdorr             #+#    #+#             */
+/*   Updated: 2023/01/28 16:31:37 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 int	ft_atoi(const char *nptr)
 {
@@ -41,6 +41,29 @@ int	ft_atoi(const char *nptr)
 	return (0);
 }
 
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
+{
+	unsigned int	r;
+
+	r = 0;
+	while (s1[r] != '\0' && s2[r] != '\0' && r < n)
+	{
+		if (s1[r] != s2[r])
+		{
+			return ((unsigned char)s1[r] - (unsigned char)s2[r]);
+		}
+		r++;
+	}
+	if (r < n)
+	{
+		return ((unsigned char)s1[r] - (unsigned char)s2[r]);
+	}
+	else
+	{
+		return (0);
+	}
+}
+
 int	ft_strcmp(char *s1, char *s2)
 {
 	int	e;
@@ -57,51 +80,16 @@ int	ft_strcmp(char *s1, char *s2)
 	return (s1[e] - s2[e]);
 }
 
-int	check_for_doubles(int argc, char **argv)
+char	*ft_strcpy(char *dest, char *src)
 {
-	int	i;
-	int	j;
+	int	a;
 
-	i = 0;
-	j = 0;
-	while (i < argc)
+	a = 0;
+	while (src[a] != '\0')
 	{
-		j = i + 1;
-		while (j < argc)
-		{
-			if (ft_strcmp(argv[i], argv[j]) == 0)
-				return (0);
-			j++;
-		}
-		i++;
+		dest[a] = src[a];
+		a++;
 	}
-	return (1);
-}
-
-int	check_arg(int argc, char **argv)
-{
-	int	i;
-	int	j;
-
-	i = 1;
-	while (argv[i])
-	{
-		j = 0;
-		while (argv[i][j])
-		{
-			if (argv[i][j] < 48 || argv[i][j] > 57)
-			{
-				write(2, "Error\n", 6);
-				return (0);
-			}
-			j++;
-		}
-		i++;
-	}
-	if (check_for_doubles(argc, argv) == 0)
-	{
-		write(2, "Error\n", 6);
-		return (0);
-	}
-	return (1);
+	dest[a] = '\0';
+	return (dest);
 }

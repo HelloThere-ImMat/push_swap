@@ -6,13 +6,13 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 11:28:11 by mdorr             #+#    #+#             */
-/*   Updated: 2023/01/27 18:01:28 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/01/28 15:40:48 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-void super_swap(t_pile *a, t_pile *b, int print)
+void	super_swap(t_pile *a, t_pile *b, int print)
 {
 	swap_a(a, 0);
 	swap_b(b, 0);
@@ -20,7 +20,7 @@ void super_swap(t_pile *a, t_pile *b, int print)
 		write(1, "ss\n", 3);
 }
 
-void super_rotate(t_pile *a, t_pile *b, int print)
+void	super_rotate(t_pile *a, t_pile *b, int print)
 {
 	rotate(a, 0);
 	rotate(b, 0);
@@ -28,7 +28,7 @@ void super_rotate(t_pile *a, t_pile *b, int print)
 		write(1, "rr\n", 3);
 }
 
-void super_reverse_rotate(t_pile *a, t_pile *b, int print)
+void	super_reverse_rotate(t_pile *a, t_pile *b, int print)
 {
 	reverse_rotate(a, 0);
 	reverse_rotate(b, 0);
