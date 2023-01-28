@@ -6,14 +6,13 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 16:14:43 by mdorr             #+#    #+#             */
-/*   Updated: 2023/01/28 18:08:08 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/01/28 19:01:21 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 

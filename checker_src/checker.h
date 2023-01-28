@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 22:20:24 by mdorr             #+#    #+#             */
-/*   Updated: 2023/01/28 16:32:06 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/01/28 19:01:16 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define CHECKER_H
 
 # include "get_next_line.h"
-# include <stdio.h>
 
 typedef struct s_pile
 {

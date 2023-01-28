@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 22:19:58 by mdorr             #+#    #+#             */
-/*   Updated: 2023/01/28 16:24:40 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/01/28 19:04:22 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,27 +28,27 @@ t_list	*add_to_instruct(char *command, t_list *instructions)
 void	which_instruction(char *instruct, t_pile *a, t_pile *b)
 {
 	if (ft_strncmp("sa\n", instruct, 3) == 0)
-		swap_a(a, 1);
+		swap_a(a, 0);
 	else if (ft_strncmp("sb\n", instruct, 3) == 0)
-		swap_b(b, 1);
+		swap_b(b, 0);
 	else if (ft_strncmp("ss\n", instruct, 3) == 0)
-		super_swap(a, b, 1);
+		super_swap(a, b, 0);
 	else if (ft_strncmp("pa\n", instruct, 3) == 0)
-		push(b, a, 1);
+		push(b, a, 0);
 	else if (ft_strncmp("pb\n", instruct, 3) == 0)
-		push(a, b, 1);
+		push(a, b, 0);
 	else if (ft_strncmp("ra\n", instruct, 3) == 0)
-		rotate(a, 1);
+		rotate(a, 0);
 	else if (ft_strncmp("rb\n", instruct, 3) == 0)
-		rotate(b, 1);
+		rotate(b, 0);
 	else if (ft_strncmp("rr\n", instruct, 3) == 0)
-		super_rotate(a, b, 1);
+		super_rotate(a, b, 0);
 	else if (ft_strncmp("rra\n", instruct, 4) == 0)
-		reverse_rotate(a, 1);
+		reverse_rotate(a, 0);
 	else if (ft_strncmp("rrb\n", instruct, 4) == 0)
-		reverse_rotate(b, 1);
+		reverse_rotate(b, 0);
 	else if (ft_strncmp("rrr\n", instruct, 4) == 0)
-		super_reverse_rotate(a, b, 1);
+		super_reverse_rotate(a, b, 0);
 }
 
 void	apply_instruct(t_list *instructions, t_pile *a, t_pile *b)
@@ -77,7 +77,6 @@ int	main(int argc, char **argv)
 		command = get_next_line(0);
 		if (command == NULL)
 			break ;
-		printf("%s", command);
 		instructions = add_to_instruct(command, instructions);
 		if (instructions == NULL)
 			return (0);
