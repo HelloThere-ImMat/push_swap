@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 16:14:43 by mdorr             #+#    #+#             */
-/*   Updated: 2023/01/28 14:15:50 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/01/28 18:08:08 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,25 @@ int		ft_strcmp(char *s1, char *s2);
 
 t_pile	*copy_tab(const t_pile *original);
 void	add_to_tab(int argc, char **argv, t_pile *a);
-void	print_tab(t_pile pile);
 void	free_pile(t_pile *pile);
+int		quartile_is_in_pile(int quartile_under, int quartile_over, t_pile a);
 int		create_tab(int argc, char **argv, t_pile *a, t_pile *b);
+//void	print_tab(t_pile pile);
+
+//SORTING UTILS
+
+void	get_quartile_to_top(int quartile_under, int quartile_over, t_pile *a);
+void	get_min_to_top(int min, t_pile *pile);
+void	get_min_to_bottom(int min, t_pile *pile);
 int		is_min(int nb, t_pile pile);
 int		is_max(int nb, t_pile pile);
+
+//SORTING UTILS 2
+
+//int		r_or_rr(t_pile *a, t_pile *b);
+int		r_or_rr(t_pile *a, t_pile *b, int top_a, int top_b);
+void	add_to_b(t_pile *a, t_pile *b);
+void	add_extreme_to_b(t_pile *a, t_pile *b, int is_min);
 
 //SUBSET
 
@@ -94,12 +108,7 @@ void	ugly_sorting(t_pile *a_tmp, t_pile *sorted);
 
 //HARD SORTING
 
-int		quartile_is_in_pile(int quartile_under, int quartile_over, t_pile a);
-int		r_or_rr(t_pile *a, t_pile *b, int top_a, int top_b);
-void	add_to_b(t_pile *a, t_pile *b);
-void	get_quartile_to_top(int quartile_under, int quartile_over, t_pile *a);
-void	get_min_to_top(int min, t_pile *pile);
-void	get_min_to_bottom(int min, t_pile *pile);
+void	sort_quartile(int under, int over, t_pile *a, t_pile *b);
 void	big_sorting(t_subset sub, t_pile *a, t_pile *b);
 void	mega_sorting(t_subset sub, t_pile *a, t_pile *b);
 
