@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 16:14:43 by mdorr             #+#    #+#             */
-/*   Updated: 2023/01/28 20:03:03 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/02/02 22:42:51 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+
+# include <stdio.h>
 
 typedef struct s_pile
 {
@@ -74,7 +76,6 @@ t_pile	*create_tab(int argc, char **argv, int a);
 void	add_to_tab(int argc, char **argv, t_pile *a);
 int		quartile_is_in_pile(int quartile_under, int quartile_over, t_pile a);
 
-
 //SORTING UTILS
 
 void	get_quartile_to_top(int quartile_under, int quartile_over, t_pile *a);
@@ -87,7 +88,7 @@ int		is_max(int nb, t_pile pile);
 
 int		r_or_rr(t_pile *a, t_pile *b, int top_a, int top_b);
 void	add_to_b(t_pile *a, t_pile *b);
-void	add_extreme_to_b(t_pile *a, t_pile *b, int is_min);
+void	add_extreme_to_dest(t_pile *a, t_pile *b, int is_min);
 
 //SUBSET
 
@@ -111,6 +112,7 @@ void	mega_sorting(t_subset sub, t_pile *a, t_pile *b);
 
 //PUSH SWAP
 
+void	print_tab(t_pile pile);
 int		main(int argc, char **argv);
 int		sort(int argc, t_pile *a, t_pile *b, t_subset *sub);
 void	free_pile(t_pile *pile);

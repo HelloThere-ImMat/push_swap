@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 17:19:05 by mdorr             #+#    #+#             */
-/*   Updated: 2023/01/28 18:41:47 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/02/02 23:27:26 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,53 +63,55 @@ void	add_to_b(t_pile *a, t_pile *b)
 	push(a, b, 1);
 }
 
-int	rotate_count(t_pile *a, t_pile *b, int top_a, int top_b)
+int	rotate_count(t_pile *src, t_pile *dest, int top_src, int top_dest)
 {
 	int	i;
 	int	counter;
 
 	i = 0;
-	while (a->tab[top_a] < b->tab[top_b] || a->tab[top_a] > b->tab[0])
+	while (src->tab[top_src] < dest->tab[top_dest]
+		|| src->tab[top_src] > dest->tab[0])
 	{
-		rotate(b, 0);
+		rotate(dest, 0);
 		i++;
 	}
 	counter = i;
 	while (i > 0)
 	{
-		reverse_rotate(b, 0);
+		reverse_rotate(dest, 0);
 		i--;
 	}
 	return (counter);
 }
 
-int	reverse_rotate_count(t_pile *a, t_pile *b, int top_a, int top_b)
+int	reverse_rotate_count(t_pile *src, t_pile *dest, int top_src, int top_dest)
 {
 	int	i;
 	int	counter;
 
 	i = 0;
-	while (a->tab[top_a] < b->tab[top_b] || a->tab[top_a] > b->tab[0])
+	while (src->tab[top_src] < dest->tab[top_dest]
+		|| src->tab[top_src] > dest->tab[0])
 	{
-		reverse_rotate(b, 0);
+		reverse_rotate(dest, 0);
 		i++;
 	}
 	counter = i;
 	while (i > 0)
 	{
-		rotate(b, 0);
+		rotate(dest, 0);
 		i--;
 	}
 	return (counter);
 }
 
-int	r_or_rr(t_pile *a, t_pile *b, int top_a, int top_b)
+int	r_or_rr(t_pile *src, t_pile *dest, int top_src, int top_dest)
 {
 	int	counter_1;
 	int	counter_2;
 
-	counter_1 = rotate_count(a, b, top_a, top_b);
-	counter_2 = reverse_rotate_count(a, b, top_a, top_b);
+	counter_1 = rotate_count(src, dest, top_src, top_dest);
+	counter_2 = reverse_rotate_count(src, dest, top_src, top_dest);
 	if (counter_2 >= counter_1)
 		return (0);
 	else

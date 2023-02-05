@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 14:16:50 by mdorr             #+#    #+#             */
-/*   Updated: 2023/01/28 19:59:50 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/02/02 22:54:11 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,25 +73,6 @@ t_pile	*create_tab(int argc, char **argv, int a)
 	return (new);
 }
 
-//int	create_tab(int argc, char **argv, t_pile *a, t_pile *b)
-//{
-//	a = (t_pile *)malloc(sizeof(t_pile));
-//	b = (t_pile *)malloc(sizeof(t_pile));
-//	a->tab = malloc(sizeof(int) * (argc - 1));
-//	b->tab = malloc(sizeof(int) * (argc - 1));
-//	a->nbr_count = argc - 1;
-//	b->nbr_count = 0;
-//	a->id = 1;
-//	b->id = 2;
-//	if (a->tab == NULL || b->tab == NULL)
-//	{
-//		write(2, "allocation error\n", 17);
-//		return (0);
-//	}
-//	add_to_tab(argc, argv, a);
-//	return (1);
-//}
-
 int	quartile_is_in_pile(int quartile_under, int quartile_over, t_pile a)
 {
 	int	i;
@@ -106,17 +87,3 @@ int	quartile_is_in_pile(int quartile_under, int quartile_over, t_pile a)
 	}
 	return (0);
 }
-
-//void	print_tab(t_pile pile)
-//{
-//	int	i;
-
-//	if (pile.nbr_count == 0)
-//		printf("Empty\n");
-//	i = pile.nbr_count - 1;
-//	while (i >= 0)
-//	{
-//		printf("the %d element is %d\n", i, pile.tab[i]);
-//		i--;
-//	}
-//}
