@@ -6,7 +6,7 @@
 #    By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 17:32:10 by mdorr             #+#    #+#              #
-#    Updated: 2023/02/05 14:15:04 by mdorr            ###   ########.fr        #
+#    Updated: 2023/02/05 15:40:33 by mdorr            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ BONUS_OBJS	= $(BONUS:.c=.o)
 
 CC	= 	gcc
 
-CFLAGS	= 	-Wall -Wextra -Werror
+CFLAGS	= 	-Wall -Wextra -Werror -g
 
 all: ${NAME}
 

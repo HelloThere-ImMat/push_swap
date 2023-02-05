@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 14:16:50 by mdorr             #+#    #+#             */
-/*   Updated: 2023/02/05 14:30:58 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/02/05 15:47:18 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_pile	*copy_tab(const t_pile *original)
 	copy = (t_pile *)malloc(sizeof(t_pile));
 	copy->nbr_count = original->nbr_count;
 	copy->id = original->id;
-	copy->tab = (int *) malloc(sizeof(int) * original->nbr_count);
+	copy->tab = (int *) malloc(sizeof(int) * original->nbr_count + 1);
 	if (copy == NULL || copy->tab == NULL)
 		return (NULL);
 	while (i < original->nbr_count)
@@ -40,7 +40,7 @@ void	add_to_tab(int argc, char **argv, t_pile *a)
 
 	i = argc;
 	i2 = 0;
-	while (i > 0)
+	while (i > 1)
 	{
 		tmp = ft_atoi(argv[i - 1]);
 		a->tab[i2] = tmp;

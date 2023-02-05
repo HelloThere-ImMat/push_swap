@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 10:33:55 by mdorr             #+#    #+#             */
-/*   Updated: 2023/01/28 14:43:57 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/02/05 15:54:44 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,11 +101,16 @@ void	medium_sorting(int arg_nbr, t_pile *a, t_pile *b)
 
 void	ugly_sorting(t_pile *a_tmp, t_pile *sorted)
 {
+	int	i;
+
+	i = 0;
 	while (a_tmp->nbr_count > 0)
 	{
 		while (is_max(a_tmp->tab[(a_tmp->nbr_count) - 1], *a_tmp) == 0)
 			rotate(a_tmp, 0);
+		//printf("%d\n", a_tmp->nbr_count);
 		push(a_tmp, sorted, 0);
+		i++;
 	}
 	return ;
 }
