@@ -6,12 +6,11 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 14:16:50 by mdorr             #+#    #+#             */
-/*   Updated: 2023/02/02 22:54:11 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/02/05 14:30:58 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 t_pile	*copy_tab(const t_pile *original)
 {

@@ -6,7 +6,7 @@
 #    By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 17:32:10 by mdorr             #+#    #+#              #
-#    Updated: 2023/01/28 17:19:58 by mdorr            ###   ########.fr        #
+#    Updated: 2023/02/05 14:15:04 by mdorr            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRCS	=	push_swap.c \
 			easy_sorting.c \
 			hard_sorting.c \
 			sorting_utils.c \
-			sorting_utils2.c
+			sorting_utils2.c \
+			sorting_utils3.c
 
 BONUS	=	checker_src/checker.c \
 			checker_src/get_next_line.c \

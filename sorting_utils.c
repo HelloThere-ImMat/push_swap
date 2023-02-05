@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 14:38:31 by mdorr             #+#    #+#             */
-/*   Updated: 2023/01/28 14:45:29 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/02/05 14:17:09 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,31 +37,6 @@ void	get_quartile_to_top(int quartile_under, int quartile_over, t_pile *a)
 		tmp = a->tab[i2];
 		while (a->tab[(a->nbr_count) - 1] != tmp)
 			rotate(a, 1);
-	}
-}
-
-void	get_min_to_bottom(int min, t_pile *pile)
-{
-	int	i;
-	int	i2;
-
-	i = 0;
-	i2 = pile->nbr_count -1;
-	if (pile->nbr_count == 0)
-		return ;
-	while (pile->tab[i] != min)
-		i++;
-	while (pile->tab[i2] != min)
-		i2--;
-	if (i + 1 < pile->nbr_count - 1 - i2)
-	{
-		while (pile->tab[0] != min)
-			reverse_rotate(pile, 1);
-	}
-	else
-	{
-		while (pile->tab[0] != min)
-			rotate(pile, 1);
 	}
 }
 

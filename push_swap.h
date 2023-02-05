@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 16:14:43 by mdorr             #+#    #+#             */
-/*   Updated: 2023/02/02 22:42:51 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/02/05 15:20:05 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-
-# include <stdio.h>
 
 typedef struct s_pile
 {
@@ -28,27 +26,20 @@ typedef struct s_pile
 typedef struct s_subset
 {
 	int	min;
+	int	q0_5;
 	int	q1;
+	int	q1_5;
 	int	median;
+	int	q2_5;
 	int	q3;
+	int	q3_5;
 	int	max;
-	int	s1;
-	int	s2;
-	int	s3;
-	int	s4;
-	int	s5;
-	int	s6;
-	int	s7;
-	int	s8;
-	int	s9;
 }	t_subset;
 
 //OPERATIONS
 
 void	swap_b(t_pile *b, int print);
 void	swap_a(t_pile *a, int print);
-void	push_a(t_pile *a, t_pile *b, int print);
-void	push_b(t_pile *a, t_pile *b, int print);
 void	push(t_pile *src, t_pile *dest, int print);
 
 //OPERATION2
@@ -86,9 +77,17 @@ int		is_max(int nb, t_pile pile);
 
 //SORTING UTILS 2
 
-int		r_or_rr(t_pile *a, t_pile *b, int top_a, int top_b);
+int		r_or_rr2(t_pile *a, t_pile *b, int top_a, int top_b);
 void	add_to_b(t_pile *a, t_pile *b);
 void	add_extreme_to_dest(t_pile *a, t_pile *b, int is_min);
+void	add_to_a2(t_pile *a, t_pile *b);
+
+//SORTING UTILS 3
+
+int		is_in_quartile(int nbr, int under, int over);
+void	get_first_half_to_b(t_pile *a, t_pile *b, t_subset sub);
+void	get_second_half_to_b(t_pile *a, t_pile *b, t_subset sub);
+void	finish_big_sorting(t_pile *a, t_pile *b, t_subset sub);
 
 //SUBSET
 

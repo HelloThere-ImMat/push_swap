@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 14:08:26 by mdorr             #+#    #+#             */
-/*   Updated: 2023/02/02 23:55:29 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/02/05 15:19:42 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 //
 
-void	print_tab(t_pile pile)
-{
-	int	i;
+//void	print_tab(t_pile pile)
+//{
+//	int	i;
 
-	i = pile.nbr_count - 1;
-	if (pile.id == 1)
-		printf("=== Pile A ===\n");
-	else
-		printf("=== Pile B===\n");
-	if (pile.nbr_count == 0)
-		printf("Empty\n");
-	while (i >= 0)
-	{
-		printf("the %d element is %d\n", i, pile.tab[i]);
-		i--;
-	}
-}
+//	i = pile.nbr_count - 1;
+//	if (pile.id == 1)
+//		printf("=== Pile A ===\n");
+//	else
+//		printf("=== Pile B===\n");
+//	if (pile.nbr_count == 0)
+//		printf("Empty\n");
+//	while (i >= 0)
+//	{
+//		printf("the %d element is %d\n", i, pile.tab[i]);
+//		i--;
+//	}
+//}
 
 //
 
@@ -77,9 +77,6 @@ int	main(int argc, char **argv)
 		write(2, "allocation error\n", 17);
 		return (1);
 	}
-	// printf("\n\nTHE END\n");
-	// print_tab(*a);
-	// print_tab(*b);
 	free_pile(a);
 	free_pile(b);
 	return (0);

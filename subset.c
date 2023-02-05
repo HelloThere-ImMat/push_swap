@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 11:40:00 by mdorr             #+#    #+#             */
-/*   Updated: 2023/01/28 20:00:29 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/02/05 14:31:41 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,14 @@ void	find_big_subset(t_subset *sub, t_pile sorted)
 	int	chunk_amount;
 
 	a_top = (sorted.nbr_count) - 1;
-	chunk_amount = a_top / 10;
+	chunk_amount = sorted.nbr_count / 8;
 	sub->max = sorted.tab[0];
 	sub->min = sorted.tab[a_top];
-	sub->s9 = sorted.tab[chunk_amount];
-	sub->s8 = sorted.tab[chunk_amount * 2];
-	sub->s7 = sorted.tab[chunk_amount * 3];
-	sub->s6 = sorted.tab[chunk_amount * 4];
-	sub->s5 = sorted.tab[chunk_amount * 5];
-	sub->s4 = sorted.tab[chunk_amount * 6];
-	sub->s3 = sorted.tab[chunk_amount * 7];
-	sub->s2 = sorted.tab[chunk_amount * 8];
-	sub->s1 = sorted.tab[chunk_amount * 9];
+	sub->q3_5 = sorted.tab[chunk_amount];
+	sub->q3 = sorted.tab[chunk_amount * 2];
+	sub->q2_5 = sorted.tab[chunk_amount * 3];
+	sub->median = sorted.tab[chunk_amount * 4];
+	sub->q1_5 = sorted.tab[chunk_amount * 5];
+	sub->q1 = sorted.tab[chunk_amount * 6];
+	sub->q0_5 = sorted.tab[chunk_amount * 7];
 }
