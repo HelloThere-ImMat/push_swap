@@ -6,17 +6,17 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 15:11:02 by mdorr             #+#    #+#             */
-/*   Updated: 2023/01/28 14:35:00 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/02/07 12:52:56 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi(const char *nptr)
+long long	ft_atoi(const char *nptr)
 {
-	int	a;
-	int	res;
-	int	sign;
+	int			a;
+	long long	res;
+	int			sign;
 
 	a = 0;
 	sign = 1;
@@ -70,8 +70,30 @@ int	check_for_doubles(int argc, char **argv)
 		while (j < argc)
 		{
 			if (ft_strcmp(argv[i], argv[j]) == 0)
+			{
+				write(2, "Error\n", 6);
 				return (0);
+			}
 			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+int	check_int(char *arg)
+{
+	int	i;
+
+	i = 0;
+	if (arg[i] == 45)
+		i++;
+	while (arg[i])
+	{
+		if (arg[i] < 48 || arg[i] > 57)
+		{
+			write(2, "Error", 6);
+			return (0);
 		}
 		i++;
 	}
@@ -81,27 +103,19 @@ int	check_for_doubles(int argc, char **argv)
 int	check_arg(int argc, char **argv)
 {
 	int	i;
-	int	j;
 
 	i = 1;
 	while (argv[i])
 	{
-		j = 0;
-		while (argv[i][j])
+		if (check_int(argv[i]) == 0)
+			return (0);
+		if (ft_atoi(argv[i]) < INTMIN || ft_atoi(argv[i++]) > INTMAX)
 		{
-			if (argv[i][j] < 48 || argv[i][j] > 57)
-			{
-				write(2, "Error\n", 6);
-				return (0);
-			}
-			j++;
+			write(2, "Error\n", 6);
+			return (0);
 		}
-		i++;
 	}
 	if (check_for_doubles(argc, argv) == 0)
-	{
-		write(2, "Error\n", 6);
 		return (0);
-	}
 	return (1);
 }
