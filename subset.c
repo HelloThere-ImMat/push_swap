@@ -6,11 +6,31 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 11:40:00 by mdorr             #+#    #+#             */
-/*   Updated: 2023/02/07 15:14:25 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/02/08 13:19:37 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	get_min(t_pile *a)
+{
+	int	i;
+	int	min;
+
+	i = 0;
+	while (is_min(a->tab[0], *a) == 0)
+	{
+		rotate(a, 0);
+		i++;
+	}
+	min = a->tab[0];
+	while (i > 0)
+	{
+		reverse_rotate(a, 0);
+		i--;
+	}
+	return (min);
+}
 
 int	get_subset(t_subset *sub, t_pile *a, t_pile *b)
 {

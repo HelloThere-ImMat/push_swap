@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 10:33:55 by mdorr             #+#    #+#             */
-/*   Updated: 2023/02/07 16:24:12 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/02/08 13:36:48 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,46 +57,41 @@ void	small_sorting(int arg_nbr, t_pile *a)
 	}
 }
 
-void	add_to_a(t_pile *a, t_pile *b, int *counter)
+void	add_to_a(t_pile *a, t_pile *b)
 {
-	t_pile	*full_pile;
-	int		top_b;
+	int	top_b;
+	int	top_a;
 
-	full_pile = copy_tab(a, a->nbr_count);
 	top_b = (b->nbr_count) - 1;
-	if (is_max(b->tab[top_b], *full_pile) == 1)
-		(*counter)++;
-	else if (is_min(b->tab[top_b], *full_pile) == 0
-		&& is_max(b->tab[top_b], *full_pile) == 0)
+	top_a = (a->nbr_count) - 1;
+	if (is_max(b->tab[top_b], *a) == 1)
 	{
-		(*counter)++;
-		while (b->tab[top_b] < a->tab[0])
-		{
-			reverse_rotate(a, 1);
-			(*counter)++;
-		}
+		push(b, a, 1);
+		rotate(a, 1);
+		return ;
 	}
-	free_pile(full_pile);
+	if (is_min(b->tab[top_b], *a) == 1)
+	{
+		push(b, a, 1);
+		return ;
+	}
+	while (b->tab[top_b] > a->tab[top_a] || b->tab[top_b] < a->tab[0])
+		rotate(a, 1);
 	push(b, a, 1);
 }
 
 void	medium_sorting(int arg_nbr, t_pile *a, t_pile *b)
 {
-	int	counter;
+	int		min;
 
-	counter = 0;
 	push(a, b, 1);
 	if (arg_nbr == 5)
 		push(a, b, 1);
 	sort_trio(a);
-	add_to_a(a, b, &counter);
-	while (counter-- > 0)
-		rotate(a, 1);
-	counter = 0;
-	if (arg_nbr == 5)
-		add_to_a(a, b, &counter);
-	while (counter-- > 0)
-		rotate(a, 1);
+	while (b->nbr_count > 0)
+		add_to_a(a, b);
+	min = get_min(a);
+	get_min_to_top(min, a);
 	return ;
 }
 

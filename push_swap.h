@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 16:14:43 by mdorr             #+#    #+#             */
-/*   Updated: 2023/02/07 15:13:53 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/02/08 13:35:55 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ void			finish_big_sorting(t_pile *a, t_pile *b, t_subset sub);
 
 //SUBSET
 
+int				get_min(t_pile *a);
 int				get_subset(t_subset *sub, t_pile *a, t_pile *b);
 void			find_subset(t_subset *sub, t_pile sorted);
 void			find_big_subset(t_subset *sub, t_pile sorted);
@@ -105,7 +106,7 @@ void			find_big_subset(t_subset *sub, t_pile sorted);
 
 void			sort_trio(t_pile *a);
 void			small_sorting(int argc, t_pile *a);
-void			add_to_a(t_pile *a, t_pile *b, int *counter);
+void			add_to_a(t_pile *a, t_pile *b);
 void			medium_sorting(int argc, t_pile *a, t_pile *b);
 void			ugly_sorting(t_pile *a_tmp, t_pile *sorted);
 
