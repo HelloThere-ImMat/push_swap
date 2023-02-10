@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 15:11:02 by mdorr             #+#    #+#             */
-/*   Updated: 2023/02/08 14:05:28 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/02/10 14:35:10 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	check_for_doubles(int argc, char **argv)
 		j = i + 1;
 		while (j < argc)
 		{
-			if (ft_strcmp(argv[i], argv[j]) == 0)
+			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
 			{
 				write(2, "Error\n", 6);
 				return (0);
@@ -86,13 +86,13 @@ int	check_int(char *arg)
 	int	i;
 
 	i = 0;
-	if (arg[i] == 45)
+	if (arg[i] == 45 || arg[i] == 43)
 		i++;
 	while (arg[i])
 	{
 		if (arg[i] < 48 || arg[i] > 57)
 		{
-			write(2, "Error", 6);
+			write(2, "Error\n", 6);
 			return (0);
 		}
 		i++;
