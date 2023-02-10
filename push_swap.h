@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 16:14:43 by mdorr             #+#    #+#             */
-/*   Updated: 2023/02/08 13:35:55 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/02/10 16:27:26 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void			super_rotate(t_pile *a, t_pile *b, int print);
 long long		ft_atoi(const char *nptr);
 int				check_arg(int argc, char **argv);
 int				check_for_doubles(int argc, char **argv);
+int				check_int(char *arg);
 int				ft_strcmp(char *s1, char *s2);
 
 //PILE UTILS
@@ -69,6 +70,7 @@ int				ft_strcmp(char *s1, char *s2);
 t_pile			*copy_tab(const t_pile *original, int size);
 t_pile			*create_tab(int argc, char **argv, int a);
 void			add_to_tab(int argc, char **argv, t_pile *a);
+int				check_order(t_pile a);
 int				quartile_is_in_pile(int quartile_under,
 					int quartile_over, t_pile a);
 

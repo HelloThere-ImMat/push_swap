@@ -6,11 +6,13 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 14:16:50 by mdorr             #+#    #+#             */
-/*   Updated: 2023/02/07 15:14:39 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/02/10 16:28:13 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+
 
 t_pile	*copy_tab(const t_pile *original, int size)
 {
@@ -85,4 +87,20 @@ int	quartile_is_in_pile(int quartile_under, int quartile_over, t_pile a)
 			i++;
 	}
 	return (0);
+}
+
+int	check_order(t_pile a)
+{
+	int	i;
+
+	i = 0;
+	while (i < a.nbr_count - 1)
+	{
+		if (a.tab[i] < a.tab[i + 1])
+		{
+			return (0);
+		}
+		i++;
+	}
+	return (1);
 }

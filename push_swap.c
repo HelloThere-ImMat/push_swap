@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 14:08:26 by mdorr             #+#    #+#             */
-/*   Updated: 2023/02/08 13:36:34 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/02/10 16:29:21 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@
 
 int	sort(int argc, t_pile *a, t_pile *b, t_subset *sub)
 {
+	if (check_order(*a) == 1)
+		return (0);
 	if (argc <= 4)
 		small_sorting(argc - 1, a);
 	else if (argc <= 6)
