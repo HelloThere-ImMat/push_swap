@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 15:11:02 by mdorr             #+#    #+#             */
-/*   Updated: 2023/02/10 14:35:10 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/02/10 16:21:55 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,7 @@ int	check_for_doubles(int argc, char **argv)
 	int	i;
 	int	j;
 
-	i = 0;
-	j = 0;
+	i = 1;
 	while (i < argc)
 	{
 		j = i + 1;
